@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Clientes
+                        Informe abaixo a informação do Cliente
                         <a class="float-right" href="{{url('clientes')}}">Listagem Clientes</a>
                     </div>
 
