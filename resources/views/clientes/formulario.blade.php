@@ -11,13 +11,26 @@
                     </div>
 
                     <div class="card-body">
+
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
+                        {!! Form::open(['url'=>'clientes/salvar']) !!}
 
-                        Formulário
+                        {!! Form::label('nome','Nome') !!}
+                        {!! Form::input('text','nome','',['class'=>'form-control','autofocus','placeholder'=>'Nome']) !!}
+
+                        {!! Form::label('endereco','Endereço') !!}
+                        {!! Form::input('text','endereco','',['class'=>'form-control','','placeholder'=>'Endereço']) !!}
+
+                        {!! Form::label('numero','Número') !!}
+                        {!! Form::input('text','numero','',['class'=>'form-control','','placeholder'=>'Número']) !!}
+
+                        {!! Form::submit('Salvar',['class '=>'btn btn-primary']) !!}
+
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
