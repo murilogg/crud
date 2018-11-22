@@ -27,6 +27,8 @@ class ClientesController extends Controller
 
         $cliente->create($request->all());
 
+        \Session::flash('mensagem_sucesso','Cliente cadastrado com sucesso!');
+
         return Redirect::to('clientes/novo');
     }
 }
