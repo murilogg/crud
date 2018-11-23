@@ -13,7 +13,7 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
@@ -24,7 +24,8 @@
     <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                CRUD BÁSICO
+                {{ config('app.name', 'Laravel') }}
+                Crud
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -34,20 +35,25 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul>
+                <ul class="navbar-nav mr-auto">
                     <li><a href="{{ url('/') }}">Home </a>
-
                         @if (!Auth::guest())
                             <a href="{{ url('/clientes') }}">Clientes </a></li>
-                    @endif
+                        @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/login') }}">Login</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/register') }}">Register</a></li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            @if (Route::has('register'))
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            @endif
+                        </li>
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
