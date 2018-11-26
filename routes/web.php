@@ -9,6 +9,10 @@ Route::group(['middleware' => 'web'], function () {
 
     route::auth();
 
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index');
+
     route::get('clientes', 'ClientesController@index');
 
     route::get('clientes/novo', 'ClientesController@novo');
@@ -17,9 +21,12 @@ Route::group(['middleware' => 'web'], function () {
 
     route::post('clientes/salvar', 'ClientesController@salvar');
 
-    Auth::routes();
+    route::patch('clientes/{cliente}', 'ClientesController@atualizar');
 
-    Route::get('/home', 'HomeController@index');
+    route::delete('clientes/{cliente}', 'ClientesController@deletar');
+
+
+
 
 });
 

@@ -16,8 +16,8 @@
                             <div class="alert alert-success">{{ Session::get('mensagem_sucesso') }}</div>
                         @endif
 
-                        @if(Request::is('*/editor'))
-                            {!! Form::model($cliente, ['method'=>'PATCH','url'=> 'clientes/atualizar']) !!}
+                        @if(Request::is('*/editar'))
+                            {!! Form::model($cliente, ['method'=>'PATCH','url'=> 'clientes/'.$cliente->id]) !!}
                         @else
                             {!! Form::open(['url'=>'clientes/salvar']) !!}
                         @endif
