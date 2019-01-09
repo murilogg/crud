@@ -20,19 +20,20 @@
                             <th>Número</th>
                             <th>Ações</th>
                             <tbody>
-                                 @foreach($clientes as $cliente)
-                                 <tr>
-                                     <td>{{$cliente->nome}}</td>
-                                     <td>{{$cliente->endereco}}</td>
-                                     <td>{{$cliente->numero}}</td>
-                                     <td>
-                                         <a href="clientes/{{$cliente->id}}/editar" class="btn btn-outline-primary btn-sm">Editar</a>
-                                         {!! Form::open(['method'=>'DELETE','url'=>'/clientes/'.$cliente->id, 'style'=>'display:inline;']) !!}
-                                         <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
-                                         {!! Form::close() !!}
-                                     </td>
-                                 </tr>
-                                @endforeach
+                            @foreach($clientes as $cliente)
+                                <tr>
+                                    <td>{{$cliente->nome}}</td>
+                                    <td>{{$cliente->endereco}}</td>
+                                    <td>{{$cliente->numero}}</td>
+                                    <td>
+                                        <a href="clientes/{{$cliente->id}}/editar"
+                                           class="btn btn-outline-primary btn-sm">Editar</a>
+                                        {!! Form::open(['method'=>'DELETE','url'=>'/clientes/'.$cliente->id, 'style'=>'display:inline;']) !!}
+                                        <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                        {!! Form::close() !!}
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>

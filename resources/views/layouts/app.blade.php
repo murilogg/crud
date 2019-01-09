@@ -38,7 +38,7 @@
                 <ul class="navbar-nav mr-auto">
                     <li><a href="{{ url('/') }}">Home </a>
                         @if (!Auth::guest())
-                            <a href="{{ url('/clientes') }}">Clientes </a></li>
+                            <a href="{{ url('/clientes') }}">Clientes</a></li>
                         @endif
                 </ul>
 
